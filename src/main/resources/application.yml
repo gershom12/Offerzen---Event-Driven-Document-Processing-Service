@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/docdb
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: doc-service
+      auto-offset-reset: earliest
+
+logging:
+  pattern:
+    console: "%d [%X{correlationId}] %-5level %logger - %msg%n"
